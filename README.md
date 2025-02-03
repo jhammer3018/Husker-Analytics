@@ -6,7 +6,7 @@ Obligatory,
 ### Go Big Red!
 
 
-### Deep Learning/Neural Networks
+## Deep Learning/Neural Networks
 A neural network consists of layers that progress from input to an output. Between the input and output layers are hidden layers. Each layer contains a number of nodes.
 
 
