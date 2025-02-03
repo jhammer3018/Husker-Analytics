@@ -1,13 +1,12 @@
 # Husker-Analytics
 Machine learning for Nebraska football
+This page is meant to merge passions: Nebraska football, statistics, and machine learning. This page is not affiliated with the University of Nebraska.
 
-This page is meant to merge passions, Nebraska football, statistics, and machine learning. This page is not affiliated with the University of Nebraska.
-Obligatory, 
+Obligatory: 
 ### Go Big Red!
 
-
 ## Deep Learning/Neural Networks
-A neural network consists of layers that progress from input to an output. Between the input and output layers are hidden layers. Each layer contains a number of nodes.
+A neural network consists of layers that progress from input to output. Between the input and output layers are hidden layers. Each layer contains a number of neurons.
 
 
 #### Opponent Predictions
