@@ -3,7 +3,7 @@ Machine learning for Nebraska football
 
 This page is meant to merge passions, Nebraska football, statistics, and machine learning. This page is not affiliated with the University of Nebraska.
 Obligatory, 
-# Go Big Red!
+### Go Big Red!
 
 
 ### Deep Learning/Neural Networks
