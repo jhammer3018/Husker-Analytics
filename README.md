@@ -1,5 +1,6 @@
 # Husker-Analytics
 Machine learning for Nebraska football
+
 This page is meant to merge passions: Nebraska football, statistics, and machine learning. This page is not affiliated with the University of Nebraska.
 
 Obligatory: 
