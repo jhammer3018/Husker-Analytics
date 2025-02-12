@@ -37,14 +37,19 @@ The hyperparameters we will need to initially choose to build a functioning neur
 
 Initially we will choose our hyperparameters somewhat arbitrarily, mainly trying to avoid too much complexity. A diagram of our initial neural network is shown below:
 
+![Basic Neural Net](https://github.com/user-attachments/assets/234e0258-eae9-4c47-9bcd-4e5d77edc7b7)
 
 
 
+Here, we have one hidden layer with a number of hidden nodes close to the average nodes between the input and output layers. You can see that for the hidden layer and output layers are activation functions (ReLU and Softmax, respectively). The rectified linear unit (ReLU) activation function introduces non-linearity into our model and the softmax activation function transforms our output data into four values that all total to 1 (effectively mapping to the probability of each play). 
 
+The loss function we will use is cross entropy. 
 
+The highly used/cited Adam optimizer is chosen for our neural net. If you want to read more about how this optimizer funcitons, the citation is here(). Our learning rate (alpha) is set to 0.001 as suggested by et al. (cite). We will be using PyTorch to build our neural network so all other hyperparameters for the optimizer are set to the default that the library provides.
 
+This model in Python is shown below:
 
-Here, we have one hidden layer with a number of hidden nodes close to the average nodes between the input and output layers. Our learning rate is arbitrarily set between 0.1 and 0.00001 as commonly suggested by et al. (cite). 
+#### Training the model
 
 
 
