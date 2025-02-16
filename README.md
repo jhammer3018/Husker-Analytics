@@ -56,12 +56,10 @@ For training, validating, and testing the model we need to split the data into s
 To run the model, we need to convert the data into pytorch tensors and put them into the dataloader. The dataloader will allow us to train in batches (more on this later). To start we will train on all of the data at once:
 
 
-Plotting the loss as a funciton of epoch we see an initial steep decline in loss followed by a slow decline in the first 50 epochs:
-![image](https://github.com/user-attachments/assets/7595a07c-9d09-48cf-b2e9-0ac767e34fc3)
+Plotting the loss as a funciton of epoch we see an initial steep decline in loss followed by a slow decline in the first 50 epochs. Running the trained model on the validation data yields an accuracy of 58%, we can use a confusion matrix below to more fully understand where the model is going wrong:
 
-Running the trained model on the validation data yields an accuracy of 58%, we can use a confusion matrix below to more fully understand where the model is going wrong:
+![image](https://github.com/user-attachments/assets/59873a5f-8caa-48b3-8013-094be2c8b5ff)
 
-![image](https://github.com/user-attachments/assets/182cd8b5-db6c-4e4c-a530-8e6f7d92a48e)
 
 Here, we can see that the model is assigning most play types to "rush" since it is the most common play type in the set. From the confusion matrix we can clearly see that our model is performing poorly. 
 
@@ -75,11 +73,24 @@ We can now build the model based on the best performing model:
 
 
 The loss from this model and the confusion matrix are plotted below, here we get an accuracy of 68.5%, improving our model by 10.5%!
-![image](https://github.com/user-attachments/assets/6afccb80-c80f-497d-915d-6b88405abc27)
+![image](https://github.com/user-attachments/assets/c4c2e0bd-8395-4c21-b3c1-76d055abfe11)
+
 
 
 Another issue we have yet to discuss is the effect of the batch size while training. Currently we train on the full dataset all at one. Instead, we might want to try stochastic gradient descent (SGD) or mini-batch approaches to help the model better generalize on our data. Here we will use the same architecture as above but vary the batch size ranging from 1 to the size of our dataset. Below we can see the effect of the batch size on our validation set when we average over 5 separate random training/validation splits for each data point:
 
+![image](https://github.com/user-attachments/assets/60ace6cf-af92-4d02-8525-7722066d07d3)
+
+
+We can see that mini-batching can help us generalize and potentially increase our accuracy by a few percent. However, SGD (batch size = 1) results in very poor performance overall. We will retrain the model with a batch size of 32 where we can see that the number of Epochs needed to reach a plateau in the step-wise loss is much less since the model is learning more frequently through each pass of the data:
+![image](https://github.com/user-attachments/assets/e74eec99-ceb9-4041-9b22-9c44ff9a61d0)
+
+
+We get 74.1% accuracy overall now that we mini-batch. From the confusion matrix we can still see that plays that should be easily predicted (FG, Punt) are sometimes not predicted well. This may be due to the lack of balcance in our training dataset. In other words, we are training on many more Pass/Rush plays than Punt/FG plays such that the model may not be able to fully learn to identify the latter. TO address this we will simply try to duplicate the FG and Punt plays in our training dataset.
+
+
+
+Running our model on the test data produces:
 
 
 
