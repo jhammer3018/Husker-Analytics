@@ -50,7 +50,35 @@ The highly used/cited Adam optimizer is chosen for our neural net. If you want t
 This model in Python is shown below:
 
 #### Training the model
+For training, validating, and testing the model we need to split the data into sets. For training and validation we will use all 2023 data from 2024 Nebraska opponents. We will split the data randomly, training on 80% of the data and validating on the other 20%:
 
+
+To run the model, we need to convert the data into pytorch tensors and put them into the dataloader. The dataloader will allow us to train in batches (more on this later). To start we will train on all of the data at once:
+
+
+Plotting the loss as a funciton of epoch we see an initial steep decline in loss followed by a slow decline in the first 50 epochs:
+![image](https://github.com/user-attachments/assets/7595a07c-9d09-48cf-b2e9-0ac767e34fc3)
+
+Running the trained model on the validation data yields an accuracy of 58%, we can use a confusion matrix below to more fully understand where the model is going wrong:
+
+![image](https://github.com/user-attachments/assets/182cd8b5-db6c-4e4c-a530-8e6f7d92a48e)
+
+Here, we can see that the model is assigning most play types to "rush" since it is the most common play type in the set. From the confusion matrix we can clearly see that our model is performing poorly. 
+
+We will try to improve our model first by adjusting hyperparameters. We could do this naively, randomly changing parameters in hopes of finding some better performing architecture. To converge to a maximum more efficiently, we will use Bayesian optimization. Briefly, the Bayesian optimization method we will use is a gaussian process that will maximize hyperparameter performance while balancing exploration and exploitation. The libray we will use is bayesian-optimization (github:). We will attempt to optimize a more complex architecture with three hidden layerswhere we will try to set the number of nodes at each layer and the learning rate (alpha). The results of the optimization are shown in the parallel plot below:
+
+
+
+
+We can now build the model based on the best performing model:
+
+
+
+The loss from this model and the confusion matrix are plotted below, here we get an accuracy of 68.5%, improving our model by 10.5%!
+![image](https://github.com/user-attachments/assets/6afccb80-c80f-497d-915d-6b88405abc27)
+
+
+Another issue we have yet to discuss is the effect of the batch size while training. Currently we train on the full dataset all at one. Instead, we might want to try stochastic gradient descent (SGD) or mini-batch approaches to help the model better generalize on our data. Here we will use the same architecture as above but vary the batch size ranging from 1 to the size of our dataset. Below we can see the effect of the batch size on our validation set when we average over 5 separate random training/validation splits for each data point:
 
 
 
