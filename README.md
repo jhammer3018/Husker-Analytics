@@ -19,10 +19,7 @@ Neural networks provide a lot of potential in modern sports to help recognize pa
 
 The raw data is generally categoriezed into four different play types: pass, run, punt, or field goal. We will attempt to create a neural network that is able to predict these play calls from limited pre-snap information shown in the table below:
 
-
-
-
-
+![image](https://github.com/user-attachments/assets/e4193b9e-4509-413a-90e8-c915843f2cc0)
 
 
 To create our network, there are multiple hyperparameters that need to be selected that can all have varying degrees of impact on our ability to accurately predict play calling. Choosing hyperparameters is commonly the most difficult task in machine learning, and neural networks are no exception. 
