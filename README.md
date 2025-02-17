@@ -14,7 +14,7 @@ Here, the nodes between the input and output are assigned weights that transform
 Neural networks provide a lot of potential in modern sports to help recognize patterns and predict outcomes before they occur, giving teams a potentially decisive edge before and during a game. Below, we will attempt to create a neural network to predict Nebraska opponent playcalls from pre-snap data. Accurate predictions would offer a clear advantage, allowing the Blackshirts to adjust their playcalling in order to counter specific play types. 
 
 
-### Opponent Predictions 
+## Opponent Predictions 
 (***Data was gathered from collegefootballdata.com***)
 
 The raw data is generally categoriezed into four different play types: pass, run, punt, or field goal. We will attempt to create a neural network that is able to predict these play calls from limited pre-snap information shown in the table below:
@@ -62,7 +62,7 @@ class NeuralNetwork(torch.nn.Module):
         x = self.linear2(x)
         return x
 ```
-#### Training the model
+### Training the model
 For training, validating, and testing the model we need to split the data into sets. For training and validation we will use all 2023 data from 2024 Nebraska opponents. We will split the data randomly, training on 80% of the data and validating on the other 20%:
 ```
 data_train, data_test, play_train, play_test = train_test_split(Pre_snap_data, play_type, train_size=0.8, shuffle=True)
@@ -149,14 +149,23 @@ class NeuralNetwork(torch.nn.Module):
 ```
 
 
-The loss from this model and the confusion matrix are plotted below, here we get an accuracy of 71.7%, improving our model by 10.5%!
-![image](https://github.com/user-attachments/assets/c4c2e0bd-8395-4c21-b3c1-76d055abfe11)
+The loss from this model and the confusion matrix are plotted below, here we get an accuracy of 74.5%, an improvement of 16.5% compared to the initial model!
+![image](https://github.com/user-attachments/assets/33ecb281-6bcd-408e-88b2-230ef329bccc)
 
 
-#### Predictin 2024 Opponent play calls
 
-Running our model on the test data produces:
+### Predicting 2024 Opponent play calls
+Until this point, we have only been training and validation on data from 2023. The goal is to now use our model to try to predict play calling in 2024. We can run our model on the 2024 data and get the confusion matrix below:
+![image](https://github.com/user-attachments/assets/cd7c5fc7-8ae7-4554-b274-81f9abe45fdf)
 
+We predict opponent play calling in the 2024 season with 71.7% accuracy. Assuming you were to take a blind approach and just select all plays as "Rush", this accuracy represents a 20% improvement from the baseline. One could argue that a punt and field goal plays should both be highly predictable in a game setting. Accounting for only our ability to predict Rush and Pass play calls, we maintain an accuracy of 69.7% representing a 12.7% improvement from the baseline. 
+
+#### A few thoughts on what could improve our model in the future:
+
+
+-Currently we train our model on 2023 data only. We could also include all 2024 data that occurs prior to the snap when training, potentially offering more up to date knowledge that our model can learn from.
+
+-Many variables are not present in our data that could have a large impact on play calling. These might include weather condition, offense formation, and/or personel to name a few. Training our model with these variables might improve our ability to predict play calling in real time. 
 
 
 
