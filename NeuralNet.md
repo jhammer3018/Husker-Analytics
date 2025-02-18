@@ -1,3 +1,10 @@
+# Husker-Analytics
+Machine learning for Nebraska football
+
+This page is meant to merge passions: Nebraska football, statistics, and machine learning. This page is not affiliated with the University of Nebraska.
+
+### Go Big Red!
+
 ## Deep Learning/Neural Networks
 An artificial neural network is designed to function similar to the human brain where neurons (or nodes) are connected from input to output. In deep learning models, there are hidden layers between the input and output layers that allow the model to more effectively recognize complex patterns from the input in order to produce the desired output. Similar to the human brain, these models learn to recognize these patterns with training, allowing them to later be used with data that the model has yet to encounter. A general diagram of an artificial neural network is shown below:
 ![General Neural Net](https://github.com/user-attachments/assets/a2815c58-7194-4dbc-b17c-6446b6b8bcdc)
