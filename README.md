@@ -5,7 +5,7 @@ This page is meant to merge passions: Nebraska football, statistics, and machine
 
 ### Go Big Red!
 
-Go to [Neural Network](NeuralNet.md)
+[Neural Networks](NeuralNet.md)  [Bayesian Statistics](Bayes.md)
 
 ## Deep Learning/Neural Networks
 An artificial neural network is designed to function similar to the human brain where neurons (or nodes) are connected from input to output. In deep learning models, there are hidden layers between the input and output layers that allow the model to more effectively recognize complex patterns from the input in order to produce the desired output. Similar to the human brain, these models learn to recognize these patterns with training, allowing them to later be used with data that the model has yet to encounter. A general diagram of an artificial neural network is shown below:
