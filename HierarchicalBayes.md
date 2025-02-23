@@ -7,5 +7,18 @@ This page is meant to merge passions: Nebraska football, statistics, and machine
 
 [Neural Networks](NeuralNet.md)  |  [Bayesian Statistics](HierarchicalBayes.md)  |  
 
-# Hierarchical Bayesian Model 
+## Hierarchical Bayesian Model 
+
+General info here about bayesian models....more info about hierarchical bayes
+
+
+### Analysis of offense improvement
+Talk about the data. (and lack of)
+
+discuss complete pooling
+
+discuss no pooling
+
+
+
 
