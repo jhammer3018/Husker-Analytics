@@ -3,9 +3,11 @@ Machine learning for Nebraska football
 
 This page is meant to merge passions: Nebraska football, statistics, and machine learning. This page is not affiliated with the University of Nebraska.
 
-### Go Big Red!
+Access to the github page is available here:
+https://jhammer3018.github.io/Husker-Analytics/
 
-[Neural Networks](NeuralNet.md)  |  [Bayesian Statistics](Bayes.md)  |  
+All code for corresponding to the page above is stored in this repository. 
+### Go Big Red!
 
 
 
