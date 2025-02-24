@@ -10,7 +10,7 @@ This page is meant to merge passions: Nebraska football, statistics, and machine
 ## Bayesian Statistics
 #### Note: Information on Bayesian statistics is an interpretation from my notes from Columbia University, STATGU4224 (2024) taught by Prof. Ronald Neath
 
-Bayesian statistics is established on the princible of Bayes theorem, published by Thomas Bayes. Unlike frequentist approaches, Bayesian methods rely on incorporating prior knowledge with the observed data to determine the posterior probability of the event. Bayes rule can be represented as shown below:
+Bayesian statistics is established on the principle of Bayes theorem, published by Thomas Bayes. Unlike frequentist approaches, Bayesian methods rely on incorporating prior knowledge with the observed data to determine the posterior probability of the event. Bayes rule can be represented as shown below:
 
 $$ p(\theta|y) = {p(\theta)p(y|\theta)\over p(y)} $$
 
