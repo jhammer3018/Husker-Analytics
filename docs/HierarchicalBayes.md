@@ -35,17 +35,20 @@ $$ p(\theta|y) = Beta(\alpha +y, \beta +n-y) $$
 
 Where $y$ is the number of successes and $n$ is the number of attempts. 
 
-To model one game data, we need to choose a prior distribution, setting $\alpha and $\beta. We will approach this as if we have no strong prior belief about the odds of success and set an uninformative prior. For this scenario, a uniform distribution between 0 and 1 represents the uninformed prior. Thus our prior is $p(\theta) = Beta(1,1)$ and our posterior becomes:
+To model one game data, we need to choose a prior distribution, setting $\alpha$ and $\beta$. If we were to do this and we had no strong prior belief about the odds of success we would want to set an uninformative prior. For this scenario, a uniform distribution between 0 and 1 represents the uninformed prior. Thus our prior is $p(\theta) = Beta(1,1)$ and our posterior would be easily determined by:
 
 $$ p(\theta|y) = Beta(1+y, 1+n-y) $$
 
 Unfortunately, one game provides very little data to determine how successful the offense is. Moreover, we care about the offensive success during the entire season. Thus, we want to consider the data from every game played in the 2024 season. 
 
-We have a few options to do this. First, we could model each game individually, not pooling the data at all. This is problematic since we have so little data and makes determining the overall success of the offense during the season difficult. The second option we have is to pool all of the data, but this is innapropriate since in each game has a great amount of variability, so all $\theta_j can not reasonably be expected to be equal. Instead, we can think of our data hierarchically and model it in a way where we aknowledge the connectedness of the data without pooling the data completly. 
+We have a few options to do this. First, we could model each game individually, not pooling the data at all. This is problematic since we have so little data and makes determining the overall success of the offense during the season difficult. The second option we have is to pool all of the data, but this is innapropriate since in each game has a great amount of variability, so all $\theta_j$ can not reasonably be expected to be equal. Instead, we can think of our data hierarchically and model it in a way where we aknowledge the connectedness of the data without pooling the data completly. 
 
 
 ## Hierarchical Bayesian Model
-Here, we will determine our posterior belief of offensive "success" for the 2024 Nebraska football team with a heirarchical model. The data of a single game, $j$, has already been discussed to have the distribution:
+Here, we will determine our posterior belief of offensive "success" for the 2024 Nebraska football team with a heirarchical model. A diagram of what the hierarchical model looks like is shown below:
+
+
+We have already discussed that the data of a single game, $j$, has the distribution:
 
 $$ p(y_j|\theta_j) = Binomial(n_j, \theta_j) $$
 
@@ -57,37 +60,38 @@ Thus, we have a hyperprior $p(\alpha, \beta)$ with a joint posterior distributio
 
 $$ p(\theta,\alpha,\beta|y) \propto p(\alpha,\beta)p(\theta|\alpha,\beta)p(y|\alpha,\beta) $$
 
-A reasonable diffuse prior can be set by letting $\mu = {\alpha \over \alpha + \beta}$ and $\psi = \alpha + \beta$ and then setting the hyperprior $p(\mu, \psi) = \propto psi^{-2}$ (cite). In the original scale:
+We can't just use a uniform distribution to set this hyperprior. Instead a reasonable diffuse prior can be set by letting $\mu = {\alpha \over \alpha + \beta}$ and $\psi = \alpha + \beta$ and then setting the hyperprior $p(\mu, \psi) \propto psi^{-2}$ (cite). In the original scale:
 
 
 $$ p(\alpha, \beta) \propto (\alpha + \beta)^{-3} $$  $$ \alpha + \beta >1 $$
 
-with the log posterior:
+We can use Monte Carlo to sample from the discrete grid-based approximation of $p(\alpha, \beta|y)$ by instead drawing from $p(log(\alpha/\beta), log(\alpha + \beta)|y) \propto \alpha \beta p(\alpha, \beta|y)$, enabling to better sample from the distribution. Plotting this sampling below:
+![image](https://github.com/user-attachments/assets/210bc8e0-d72c-4e03-b93e-3d2a7bb83735)
 
-$$ p(\alpha, \beta | y) = -3 * log(\alpha + \beta) - m*logBeta(\alpha, \beta) + \Sigma log Beta(\alpha + y_j, \beta + n_j - y_j) $$
 
-where $m$ is the number of games played in the season. 
+We then can draw S draws from the above distribution to approximate the posterior. When we do this our posterior probability for each game is:
 
-We can use Monte Carlo to sample from this distribution by generating samples from $(log(\alpha/\beta),log(\alpha + \beta))$. In R below:
+![image](https://github.com/user-attachments/assets/cf547e3c-2704-4baa-a79a-656565281c56)
+
+
+We can see that the values are all somewhere between the observed probability of success for an individual game (no pooling) and the average probability of succes (complete pooling). This effect of bringing the median probabiliity of success towards the middle is called .... where games with a smaller sample size are more affected. 
+
+We now want to consider the posterior probability of success if the 2024 team were to play one more game, based on the data from the entire season. We can simulate this with the following code:
 ```
 code here
 ```
-Which we can plot:
-
-
-
-
-
-
+We then can plot the posterior probability of success:
+![image](https://github.com/user-attachments/assets/95f02b62-bf82-4a58-89d3-546d70b8d136)
 
 
 ## Analysis of offense improvement
-Talk about the data. (and lack of)
+Often times we want to use Bayesian statistics to compare distributions to make some statement about relative probabilities of an event occuring. For Nebraska football, an interesting comparison to make is between seasons to see if the team has improved from the previous year. Here, we will compare seasons from the Matt Rhule era (2023 and 2024). We can perform the exact analysis above on the 2023 data and plot the two distributions together as shown below:
+![image](https://github.com/user-attachments/assets/eb6f34e1-29b2-4d84-8aaa-288f63e6e9e6)
 
-discuss complete pooling
-
-discuss no pooling
-
-
-
+From the distributions we can check our posterior belief that another game from the 2024 team will have a higher probability of success than another for the 2023 team:
+```
+code here
+```
+From this we see a 71.9% posterior belief that the 2024 team would have a higher probability of success. 
+## Analysis of defense improvement
 
