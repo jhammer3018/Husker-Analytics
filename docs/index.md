@@ -5,7 +5,16 @@ This page is meant to merge passions: Nebraska football, statistics, and machine
 
 ### Go Big Red!
 
-## Browse Topics
+## Click Below To Browse Topics
 [Neural Networks](NeuralNet.md)  |  [Bayesian Statistics](HierarchicalBayes.md)  |  
 
-## Highlights
+# Highlights
+
+## Bayesian optimized neural network predicts opponent playcalling with 71.7% accuracy.
+![image](https://github.com/user-attachments/assets/8f6dc492-b99a-4d89-a4e2-a7d1961d4c95)
+
+
+## A hierarchical Bayesian model predicts that the 2024 season Huskers are 71.9% more likely to be successful on offense than the 2023 season team.
+
+![image](https://github.com/user-attachments/assets/4c2a0d99-4459-4ccb-b9aa-0bcba53a8de4)
+
