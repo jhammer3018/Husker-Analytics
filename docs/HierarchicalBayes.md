@@ -14,9 +14,7 @@ Bayesian statistics is established on the principle of Bayes theorem, published 
 
  $$ {p(\theta|y) = {p(\theta)p(y|\theta)\over p(y)}} $$
 
-Here, $p(\theta|y)$ represents the posterior belief of $\theta$ conditional on the data $y$, $p(\theta)$ represents the prior belief about $${\theta}$$ before the data is observed, ${p(y|\theta)}$ is the likelihood which represents the probability of observing data ${y}$ given ${\theta}$, and ${p(y)}$ is the marginal likelihood. The marginal likelihood is commonly represented as:
-
-\\[ {p(y) = \int p(\theta)p(\theta|y)d\theta} \\]
+Here, *p(θ|y)* represents the posterior belief of *θ* conditional on the data *y*, *p(θ)* represents the prior belief about *θ* before the data is observed, *p(y|θ)* is the likelihood which represents the probability of observing data *y* given *θ*, and *p(y)* is the marginal likelihood. The marginal likelihood is commonly represented as:
 
 $$ {p(y) = \int p(\theta)p(\theta|y)d\theta} $$
 
