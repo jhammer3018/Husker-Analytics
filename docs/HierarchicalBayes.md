@@ -16,6 +16,8 @@ $$ {p(\theta|y) = {p(\theta)p(y|\theta)\over p(y)}} $$
 
 Here, $p(\theta|y)$ represents the posterior belief of $\theta$ conditional on the data $y$, $p(\theta)$ represents the prior belief about $${\theta}$$ before the data is observed, ${p(y|\theta)}$ is the likelihood which represents the probability of observing data ${y}$ given ${\theta}$, and ${p(y)}$ is the marginal likelihood. The marginal likelihood is commonly represented as:
 
+\\[ {p(y) = \int p(\theta)p(\theta|y)d\theta} \\]
+
 $$ {p(y) = \int p(\theta)p(\theta|y)d\theta} $$
 
 This acts as a normalizing constant for the posterior distribution. In the absence of this marginal likelihood, which is not always straightforward to determine, the posterior is often just calculated as being proportional to the product of the prior and the likelihood:
