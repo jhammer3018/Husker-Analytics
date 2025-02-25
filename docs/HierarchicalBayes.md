@@ -12,10 +12,8 @@ This page is meant to merge passions: Nebraska football, statistics, and machine
 
 Bayesian statistics is established on the principle of Bayes theorem, published by Thomas Bayes. Unlike frequentist approaches, Bayesian methods rely on incorporating prior knowledge with the observed data to determine the posterior probability of the event. Bayes rule can be represented as shown below:
 ```math
-E = m c^2
+ {p(\theta|y) = {p(\theta)p(y|\theta)\over p(y)}} 
 ```
-$$ {p(\theta|y) = {p(\theta)p(y|\theta)\over p(y)}} $$
-
 Here, $p(\theta|y)$ represents the posterior belief of $\theta$ conditional on the data $y$, $p(\theta)$ represents the prior belief about $${\theta}$$ before the data is observed, ${p(y|\theta)}$ is the likelihood which represents the probability of observing data ${y}$ given ${\theta}$, and ${p(y)}$ is the marginal likelihood. The marginal likelihood is commonly represented as:
 
 \\[ {p(y) = \int p(\theta)p(\theta|y)d\theta} \\]
