@@ -42,7 +42,7 @@ Unfortunately, one game provides very little data to determine how successful th
 ## Hierarchical Bayesian Model
 We have a few options to model the entire season. First, we could model each game individually, not pooling the data at all. This is problematic since we have so little data which makes determining the overall success of the offense during the season difficult. The second option we have is to pool all of the data, but this is innapropriate since in each game has a great amount of variability, so all *θ<sub>j* can not reasonably be expected to be equal. Instead, we can think of our data hierarchically and model it in a way where we aknowledge the connectedness of the data without pooling the data completly. A diagram of what the hierarchical model looks like is shown below:
 
-![image](https://github.com/user-attachments/assets/04c70177-3bba-46ff-a6f2-b893f9581c92)
+![image](https://github.com/user-attachments/assets/4f77bf04-ddfb-40c5-9f87-3e2c2f5c2252)
 
 We have already discussed that the data of a single game, *j*, has a Binomial distribution. In a hierarchical model, we will have the prior distribution:
 
