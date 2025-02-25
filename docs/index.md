@@ -5,4 +5,7 @@ This page is meant to merge passions: Nebraska football, statistics, and machine
 
 ### Go Big Red!
 
+## Browse Topics
 [Neural Networks](NeuralNet.md)  |  [Bayesian Statistics](HierarchicalBayes.md)  |  
+
+## Highlights
