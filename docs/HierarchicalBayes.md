@@ -27,7 +27,7 @@ Bayesian statistics allow us to use our beliefs about an event and update this b
 ### Modeling The Data
 Herein, we will determine our posterior belief of offensive "success" for the 2024 Nebraska football team. We will attempt to do this based on the offenses ability to score a FG or touchdown when beginning (with a first down) between 60 and 70 yards from the endzone. This was chosen as a touchback is placed on the 25 yard line and is the most common drive we should expect an offense to see. Here we can model the data in terms of attempts and successes where a single attmpt is a Bernoulli distribution between 0 and 1 with a probability of success (p) where 0 < p < 1. The data of a single game has the distribution:
 
-$$ {p(y|\theta) = Binomial(n, \theta) = {{n}\choose{y}} \theta^y(1-\theta)^{n-y}} $$
+$$ {p(y|\theta) = Binomial(n, \theta) = {n \choose y} \theta^y(1-\theta)^{n-y}} $$
 
 Without going too much into the math, the conjugate prior for a binomial sampling model is a beta distribution. Thus, when the the prior distribution is $Beta(\alpha,\beta)$, the posterior distribution is:
 
