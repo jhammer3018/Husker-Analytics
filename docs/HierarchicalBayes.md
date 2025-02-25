@@ -12,30 +12,31 @@ This page is meant to merge passions: Nebraska football, statistics, and machine
 
 Bayesian statistics is established on the principle of Bayes theorem, published by Thomas Bayes. Unlike frequentist approaches, Bayesian methods rely on incorporating prior knowledge with the observed data to determine the posterior probability of the event. Bayes rule can be represented as shown below:
 
- $$ {p(\theta|y) = {p(\theta)p(y|\theta)\over p(y)}} $$
+![image](https://github.com/user-attachments/assets/47716545-63a4-4428-a632-7c901fcfcfdb)
 
 Here, *p(θ&#124;y)* represents the posterior belief of *θ* conditional on the data *y*, *p(θ)* represents the prior belief about *θ* before the data is observed, *p(y&#124;θ)* is the likelihood which represents the probability of observing data *y* given *θ*, and *p(y)* is the marginal likelihood. The marginal likelihood is commonly represented as:
 
-$$ {p(y) = \int p(\theta)p(\theta|y)d\theta} $$
+![image](https://github.com/user-attachments/assets/30ce3c68-e6f3-4935-a0b7-e64ab4206e35)
 
 This acts as a normalizing constant for the posterior distribution. In the absence of this marginal likelihood, which is not always straightforward to determine, the posterior is often just calculated as being proportional to the product of the prior and the likelihood:
 
-$$ {p(\theta|y) \propto {p(\theta)p(y|\theta)}} $$
+![image](https://github.com/user-attachments/assets/c3db2d67-918b-4b29-a049-05cdad5f8320)
 
 Bayesian statistics allow us to use our beliefs about an event and update this belief as more data is observed. Moreover, it allows us to discuss the posterior in terms of probability of events occuring and can provide more interesting insights compared to frequentist approaches. 
 
 ### Modeling The Data
 Herein, we will determine our posterior belief of offensive "success" for the 2024 Nebraska football team. We will attempt to do this based on the offenses ability to score a FG or touchdown when beginning (with a first down) between 60 and 70 yards from the endzone. This was chosen as a touchback is placed on the 25 yard line and is the most common drive we should expect an offense to see. Here we can model the data in terms of attempts and successes where a single attmpt is a Bernoulli distribution between 0 and 1 with a probability of success (p) where 0 < p < 1. The data of a single game has the distribution:
 
-$$ {p(y|\theta) = Binomial(n, \theta) = {n \choose y} \theta^y(1-\theta)^{n-y}} $$
+![image](https://github.com/user-attachments/assets/db9fcabd-1e90-4dbd-91d6-aa8d08ea02bb)
 
 Without going too much into the math, the conjugate prior for a binomial sampling model is a beta distribution. Thus, when the the prior distribution is *Beta(α, β)*, the posterior distribution is shown below where *y* is the number of successes and *n* is the number of attempts:
 
-$$ {p(\theta|y) = Beta(\alpha +y, \beta +n-y)} $$
+![image](https://github.com/user-attachments/assets/333f6527-1830-4808-a607-afacc2800dd5)
+
 
 To model one game data, we need to choose a prior distribution, setting *α* and *β*. If we were to do this and we had no strong prior belief about the odds of success we would want to set an uninformative prior. For this scenario, a uniform distribution between 0 and 1 represents the uninformed prior. Thus our prior is *p(θ) = Beta(1,1)* and our posterior would be easily determined by:
 
-$$ {p(\theta|y) = Beta(1+y, 1+n-y)} $$
+![image](https://github.com/user-attachments/assets/c31d014b-2216-4ef5-9a9f-2153a36b6fd8)
 
 Unfortunately, one game provides very little data to determine how successful the offense is. Moreover, we care about the offensive success during the entire season. Thus, we want to consider the data from every game played in the 2024 season. 
 
@@ -46,26 +47,23 @@ We have a few options to model the entire season. First, we could model each gam
 
 We have already discussed that the data of a single game, *j*, has a Binomial distribution. In a hierarchical model, we will have the prior distribution:
 
-$$ {\theta_j|\alpha, \beta \approx Beta(\alpha, \beta)} $$
+![image](https://github.com/user-attachments/assets/0acecbee-c3f1-4188-91ef-d1e0fb1cfa58)
 
 Thus, we have a hyperprior *p(α, β)* with a joint posterior distribution:
 
-$$ {p(\theta,\alpha,\beta|y) \propto p(\alpha,\beta)p(\theta|\alpha,\beta)p(y|\alpha,\beta)} $$
+![image](https://github.com/user-attachments/assets/ddd59619-1b9e-4f44-8635-2a3b606adef9)
 
 A reasonable diffuse prior can be set by using μ and ψ: 
 
-$$ {\mu = {\alpha \over \alpha + \beta}}  $$
-$$ {\psi = \alpha + \beta} $$ 
-$$ {p(\mu, \psi) \propto psi^{-2}} $$
+![image](https://github.com/user-attachments/assets/c508436d-ca7d-4450-bb85-5f144fe6d16f)
 
 In the original scale:
 
-$$ {p(\alpha, \beta) \propto (\alpha + \beta)^{-3}} $$  
-$$ {\alpha + \beta >1} $$
+![image](https://github.com/user-attachments/assets/3daa6930-7e38-4394-9174-a4034655551c)
 
 We can use Monte Carlo to sample from the discrete grid-based approximation of *p(α, β&#124;y)*  by drawing from:
 
-$$ {p(log(\alpha/\beta), log(\alpha + \beta)|y) \propto \alpha \beta p(\alpha, \beta|y)} $$
+![image](https://github.com/user-attachments/assets/5f40571d-9b3b-48de-be95-7e0570cf9e13)
 
 The code adapted from STATGU4224, Columbia University (2024) for this full process in R is shown:
 ```
