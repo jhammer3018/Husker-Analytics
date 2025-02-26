@@ -5,7 +5,7 @@ This page is meant to merge passions: Nebraska football, statistics, and machine
 
 ### Go Big Red!
 
-[Home](index.md) | [Neural Networks](NeuralNet.md) | [Hierarchical Bayesian Analysis](HierarchicalBayes.md) |  
+[Home](index.md)  |  [Neural Networks](NeuralNet.md)  |  [Hierarchical Bayesian Analysis](HierarchicalBayes.md)  |   
 
 ## Bayesian Statistics
 #### Note: Information on Bayesian statistics is an interpretation from my notes from Columbia University, STATGU4224 (2024) taught by Prof. Ronald Neath
