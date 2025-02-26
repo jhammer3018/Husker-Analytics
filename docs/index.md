@@ -7,7 +7,7 @@ This page is meant to merge passions: Nebraska football, statistics, and machine
 
 ## Click Below To Browse Topics
 
-[Neural Networks](NeuralNet.md)  |  [Hierarchical Bayesian Analysis](HierarchicalBayes.md)  |  
+[Neural Networks](NeuralNet.md) | [Hierarchical Bayesian Analysis](HierarchicalBayes.md) |    
 
 # Highlights
 
