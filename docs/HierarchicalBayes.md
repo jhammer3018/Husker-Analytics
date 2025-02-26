@@ -66,6 +66,7 @@ We can use Monte Carlo to sample from the discrete grid-based approximation of *
 ![image](https://github.com/user-attachments/assets/5f40571d-9b3b-48de-be95-7e0570cf9e13)
 
 The code adapted from STATGU4224, Columbia University (2024) for this full process in R is shown:
+#### (Data was gathered from collegefootballdata.com)
 ```
 y <- c(1, 1, 2, 0, 0, 1, 1, 1, 2, 0, 3, 2)
 n <- c(7,  5, 11,  7,  4,  8,  8,  9,  6,  5, 12,  9)
