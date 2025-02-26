@@ -178,10 +178,8 @@ Until this point, we have only been training and validation on data from 2023. T
 
 We predict opponent play calling in the 2024 season with 71.7% accuracy. Assuming you were to take a blind approach and just select all plays as "Rush", this accuracy represents a 20% improvement from the baseline. One could argue that a punt and field goal plays should both be highly predictable in a game setting. Accounting for only our ability to predict Rush and Pass play calls, we maintain an accuracy of 69.7% representing a 12.7% improvement from the baseline. 
 
-#### A few thoughts on what could improve our model in the future:
+#### Additional thoughts on what could improve our model in the future
+ - Currently we train our model on 2023 data only. We could also include all 2024 data that occurs prior to the snap when training, potentially offering more up to date knowledge that our model can learn from.
 
-
--Currently we train our model on 2023 data only. We could also include all 2024 data that occurs prior to the snap when training, potentially offering more up to date knowledge that our model can learn from.
-
--Many variables are not present in our data that could have a large impact on play calling. These might include weather condition, offense formation, and/or personel to name a few. Training our model with these variables might improve our ability to predict play calling in real time. 
+ - Many variables are not present in our data that could have a large impact on play calling. These might include weather condition, offense formation, and/or personel to name a few. Training our model with these variables might improve our ability to predict play calling in real time. 
 
