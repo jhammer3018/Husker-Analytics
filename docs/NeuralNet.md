@@ -29,9 +29,9 @@ To create our network, there are multiple hyperparameters that need to be select
 
 Here, we have one hidden layer with a number of hidden nodes close to the average nodes between the input and output layers. You can see that for the hidden layer and output layers are activation functions (ReLU and Softmax, respectively). The rectified linear unit (ReLU) activation function introduces non-linearity into our model and the softmax activation function transforms our output data into four values that all total to 1 (effectively mapping to the probability of each play). The loss function we will use is cross entropy. 
 
-The highly used/cited Adam optimizer is chosen for our neural net. If you want to read more about how this optimizer funcitons, the citation is here: (). Our learning rate (alpha) is set to 0.001 as suggested by et al. (cite). We will be using PyTorch to build our neural network so all other hyperparameters for the optimizer are set to the default that the library provides.
+The highly used/cited Adam optimizer is chosen for our neural net. If you want to read more about how this optimizer funcitons, the citation is here: Kingma, D. P., & Ba, J. (2014). *Adam: A method for stochastic optimization*. 2014. arXiv preprint arXiv:1412.6980). Our learning rate (α) is set to 0.001 as suggested by Kingma et al. 
 
-This model in Python is shown below:
+We will be using PyTorch to build our neural network so all other hyperparameters for the optimizer are set to the default that the library provides. This model in Python is shown below:
 ```
 class NeuralNetwork(torch.nn.Module):
     def __init__(self):
@@ -137,7 +137,7 @@ test_dataloader = DataLoader(dataset=test_data, batch_size = batch_size, shuffle
 ![image](https://github.com/user-attachments/assets/af501504-8460-4a19-b45c-6b2095930066)
 
 ### Bayesian optimization
-We will try to improve our model further by adjusting hyperparameters. We could do this fully explorative, randomly changing parameters in hopes of finding some better performing architecture. We will instead leverage Bayesian optimization to converge to a maximum more efficiently. Briefly, the Bayesian optimization method we will employ is a gaussian process that will maximize hyperparameter performance while balancing exploration and exploitation. The libray we will use is bayesian-optimization (github:). We will attempt to optimize a more complex architecture with three hidden layers attempting to set the number of nodes at each layer and the learning rate (alpha). The results of the optimization are shown in the parallel plot below:
+We will try to improve our model further by adjusting hyperparameters. We could do this fully explorative, randomly changing parameters in hopes of finding some better performing architecture. We will instead leverage Bayesian optimization to converge to a maximum more efficiently. Briefly, the Bayesian optimization method we will employ is a gaussian process that will maximize hyperparameter performance while balancing exploration and exploitation. The libray we will use is bayesian-optimization (Fernando Nogueira, *Bayesian Optimization: Open source constrained global optimization tool for Python*, 2014, https://github.com/bayesian-optimization/BayesianOptimization). We will attempt to optimize a more complex architecture with three hidden layers attempting to set the number of nodes at each layer and the learning rate (α). The results of the optimization are shown in the parallel plot below:
 
 ![image](https://github.com/user-attachments/assets/98a8d627-ab82-4655-842b-9b379a9eb2fc)
 
