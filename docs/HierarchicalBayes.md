@@ -12,7 +12,7 @@ This page is meant to merge passions: Nebraska football, statistics, and machine
 ## Bayesian Statistics
 #### Note: Information on Bayesian statistics is an interpretation from my notes from Columbia University, STATGU4224 (2024) taught by Prof. Ronald Neath
 
-Bayesian statistics is established on the principle of Bayes theorem, published by Thomas Bayes. Unlike frequentist approaches, Bayesian methods rely on incorporating prior knowledge with the observed data to determine the posterior probability of the event. Bayes rule can be represented as shown below:
+Bayesian statistics are established on the principle of Bayes theorem, published by Thomas Bayes. Unlike frequentist approaches, Bayesian methods rely on incorporating prior knowledge with the observed data to determine the posterior probability of the event. Bayes rule can be represented as shown below:
 
 ![image](https://github.com/user-attachments/assets/47716545-63a4-4428-a632-7c901fcfcfdb)
 
@@ -24,14 +24,14 @@ This acts as a normalizing constant for the posterior distribution. In the absen
 
 ![image](https://github.com/user-attachments/assets/c3db2d67-918b-4b29-a049-05cdad5f8320)
 
-Bayesian statistics allow us to use our beliefs about an event and update this belief as more data is observed. Moreover, it allows us to discuss the posterior in terms of probability of events occuring and can provide more interesting insights compared to frequentist approaches. 
+Bayesian statistics allow us to use our beliefs about an event and update this belief as more data is observed. Moreover, it allows us to discuss the posterior in terms of probability of events occurring and can provide more interesting insights compared to frequentist approaches. 
 
 ### Modeling The Data
-Herein, we will determine our posterior belief of offensive "success" for the 2024 Nebraska football team. We will attempt to do this based on the offenses ability to score a FG or touchdown when beginning (with a first down) between 60 and 70 yards from the endzone. This was chosen as a touchback is placed on the 25 yard line and is the most common drive we should expect an offense to see. Here we can model the data in terms of attempts and successes where a single attmpt is a Bernoulli distribution between 0 and 1 with a probability of success (p) where 0 < p < 1. The data of a single game has the distribution:
+Herein, we will determine our posterior belief of offensive "success" for the 2024 Nebraska football team. We will attempt to do this based on the offense's ability to score a FG or touchdown when beginning (with a first down) between 60 and 70 yards from the endzone. This was chosen as this is the most common first down position we see from the offense. Here we can model the data in terms of attempts and successes where a single attempt is a Bernoulli distribution between 0 and 1 with a probability of success (p) where 0 < p < 1. The data of a single game has the distribution:
 
 ![image](https://github.com/user-attachments/assets/db9fcabd-1e90-4dbd-91d6-aa8d08ea02bb)
 
-Without going too much into the math, the conjugate prior for a binomial sampling model is a beta distribution. Thus, when the the prior distribution is *Beta(α, β)*, the posterior distribution is shown below where *y* is the number of successes and *n* is the number of attempts:
+Without going too much into the math, the conjugate prior for a binomial sampling model is a beta distribution. Thus, when the prior distribution is *Beta(α, β)*, the posterior distribution is shown below where *y* is the number of successes and *n* is the number of attempts:
 
 ![image](https://github.com/user-attachments/assets/333f6527-1830-4808-a607-afacc2800dd5)
 
@@ -40,10 +40,10 @@ To model one game data, we need to choose a prior distribution, setting *α* and
 
 ![image](https://github.com/user-attachments/assets/c31d014b-2216-4ef5-9a9f-2153a36b6fd8)
 
-Unfortunately, one game provides very little data to determine how successful the offense is. Moreover, we care about the offensive success during the entire season. Thus, we want to consider the data from every game played in the 2024 season. 
+Unfortunately, one game provides very little data to determine how successful the offense is. Moreover, we care about offensive success during the entire season. Thus, we want to consider the data from every game played in the 2024 season. 
 
 ## Hierarchical Bayesian Model
-We have a few options to model the entire season. First, we could model each game individually, not pooling the data at all. This is problematic since we have so little data which makes determining the overall success of the offense during the season difficult. The second option we have is to pool all of the data, but this is innapropriate since in each game has a great amount of variability, so all *θ<sub>j* can not reasonably be expected to be equal. Instead, we can think of our data hierarchically and model it in a way where we aknowledge the connectedness of the data without pooling the data completly. A diagram of what the hierarchical model looks like is shown below:
+We have a few options to model the entire season. First, we could model each game individually, not pooling the data at all. This is problematic since we have so little data which makes determining the overall success of the offense during the season difficult. The second option we have is to pool all the data, but this is inappropriate since games have a great amount of variability, so all *θ<sub>j* cannot reasonably be expected to be equal. Instead, we can think of our data hierarchically and model it in a way where we acknowledge the connectedness of the data without pooling the data completely. A diagram of what the hierarchical model looks like is shown below:
 
 ![image](https://github.com/user-attachments/assets/4f77bf04-ddfb-40c5-9f87-3e2c2f5c2252)
 
@@ -120,7 +120,7 @@ theta_sim <- matrix(theta_sim, m, S)
 ![image](https://github.com/user-attachments/assets/cf547e3c-2704-4baa-a79a-656565281c56)
 
 
-We can see that the values are all somewhere between the observed probability of success for an individual game (no pooling) and the average probability of success from all games (complete pooling). This shrinking effect pulls probabiliities towards the pooled average and away from the observed rates. We now want to consider the posterior probability of success if the 2024 team were to play one more game, based on the data from the entire season. We can simulate this with the following code:
+We can see that the values are all somewhere between the observed probability of success for an individual game (no pooling) and the average probability of success from all games (complete pooling). This shrinking effect pulls probabilities towards the pooled average and away from the observed rates. We now want to consider the posterior probability of success if the 2024 team were to play one more game, based on the data from the entire season. We can simulate this with the following code:
 ```
 theta_new <- rbeta(S, alpha_sim, beta_sim)
 ```
@@ -129,7 +129,7 @@ Then, plotting the posterior probability of success:
 
 
 ## Analysis of offense improvement
-Often times Bayesian statistics is used to make some statement about relative probabilities of an event occuring. For Nebraska football, an interesting comparison to make is between seasons to see if the team has improved from the previous year. Here, we will compare seasons from the Matt Rhule era (2023 and 2024). We can perform the exact analysis above on the 2023 data and plot the two distributions together as shown below:
+Often, Bayesian statistics are used to make some statement about relative probabilities of an event occurring. For Nebraska football, an interesting comparison to make is between seasons to see if the team has improved from the previous year. Here, we will compare seasons from the Matt Rhule era (2023 and 2024). We can perform the exact analysis above on the 2023 data and plot the two distributions together as shown below:
 ![image](https://github.com/user-attachments/assets/eb6f34e1-29b2-4d84-8aaa-288f63e6e9e6)
 
 From the distributions we can check our posterior belief that another game from the 2024 team will have a higher probability of success than another for the 2023 team:
@@ -147,7 +147,7 @@ We will perform the analysis as above but for the defense where the success is d
 ### Additional Thoughts
  - Many metrics for offensive and defensive success can exist so exploring other data may provide more valuable insights. 
 
- - This model avoids addressing confounding features such as weather, strength of opponent, previous games playes, etc... Including these variables in a hierarchical linear model may provide more detail on the differences between games and seasons.
+ - This model avoids addressing confounding features such as weather, strength of opponent, previous games played, etc.... Including these variables in a hierarchical linear model may provide more detail on the differences between games and seasons.
 
 
 
