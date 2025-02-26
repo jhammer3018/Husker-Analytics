@@ -142,3 +142,10 @@ We will perform the analysis as above but for the defense where the success is d
 ![image](https://github.com/user-attachments/assets/2661d4d3-c694-49de-925b-6e630bb2b255)
 
 
+### Additional Thoughts
+ - Many metrics for offensive and defensive success can exist so exploring other data may provide more valuable insights. 
+
+ - This model avoids addressing confounding features such as weather, strength of opponent, previous games playes, etc... Including these variable in a hierarchical linear model may provide more detail on the differences between games and seasons.
+
+
+
