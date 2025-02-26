@@ -136,9 +136,8 @@ sum(theta_new_2024>theta_new_2023)/S
 From this we see a 71.9% posterior belief that the 2024 team would have a higher probability of success. 
 
 ## Analysis of defense improvement
-We will perform the analysis as above but for the defense where the success is determined by the opposing team not scoring when starting between 60 and 70 yards from the endzone. Plotting each game for the Blackshirts during the 2024 season:
+We will perform the analysis as above but for the defense where the success is determined by the opposing team not scoring when starting between 60 and 70 yards from the endzone. Comparing the two posterior predictive distributions, the belief that the 2024 team would have a higher chance of success is 58.6%:
 
-
-Then, comparing the two posterior distributions, the posterior belief that the 2024 team would have a higher chance of success is %:
+![image](https://github.com/user-attachments/assets/2661d4d3-c694-49de-925b-6e630bb2b255)
 
 
