@@ -11,7 +11,7 @@ This page is meant to merge passions: Nebraska football, statistics, and machine
 
 # Highlights
 
-## Bayesian optimized neural network predicts opponent playcalling with 71.7% accuracy.
+## Bayesian-optimized neural network predicts opponent playcalling with 71.7% accuracy.
 ![image](https://github.com/user-attachments/assets/8f6dc492-b99a-4d89-a4e2-a7d1961d4c95)
 
 
