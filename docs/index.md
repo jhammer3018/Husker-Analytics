@@ -18,3 +18,6 @@ This page is meant to merge passions: Nebraska football, statistics, and machine
 
 ![image](https://github.com/user-attachments/assets/4c2a0d99-4459-4ccb-b9aa-0bcba53a8de4)
 
+## A hierarchical Bayesian model predicts that the 2024 season Blackshirts are 58.6% more likely to be successful on defense than the 2023 season team.
+
+![image](https://github.com/user-attachments/assets/e813d1d5-3bca-4d31-af45-e79f401f802c)
