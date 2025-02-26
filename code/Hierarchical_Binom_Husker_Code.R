@@ -1,4 +1,4 @@
-# Adapted by Joseph Hammer from Columbia University, STATGU4224 (2024) example code written by Prof. Ronald Neath
+# Adapted by Joseph Hammer (2025) from Columbia University, STATGU4224 (2024) example code written by Prof. Ronald Neath
 # Data collected from collegefootballdata.com
 
 ##2024 offense
