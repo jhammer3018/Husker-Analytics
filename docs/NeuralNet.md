@@ -23,7 +23,8 @@ The raw data is generally categorized into four different play types: pass, rush
 
 To create our network, there are multiple hyperparameters that need to be selected that can all have varying degrees of impact on our ability to accurately predict play calling. Just to name a few, these hyperparameters include the number of layers, number of nodes, optimizer to use, and the learning rate.  Choosing hyperparameters is commonly the most difficult task in machine learning, and neural networks are no exception. Initially we will choose our hyperparameters somewhat arbitrarily, mainly trying to avoid too much complexity. A diagram of our initial neural network is shown below:
 
-![Basic Neural Net](https://github.com/user-attachments/assets/234e0258-eae9-4c47-9bcd-4e5d77edc7b7)
+![image](https://github.com/user-attachments/assets/549130f7-2036-4009-a042-0a0d54964e89)
+
 
 
 
